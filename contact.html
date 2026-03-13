@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Booking — AxumiteEthiopiaTours</title>
+  <meta name="description" content="Start planning your dream Ethiopian journey today. Contact AxumiteEthiopiaTours for booking inquiries." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="style.css/ax.css" />
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar"><div class="container"><div class="top-bar-left"><span>📞 +251 91 234 5678</span><span>✉️ info@axumitetours.com</span></div><span class="top-bar-right">📍 Addis Ababa, Ethiopia</span></div></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">Axumite<span>Ethiopia</span>Tours</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="tours.html">Tours</a><a href="destinations.html">Destinations</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn-accent nav-book">Book Now</a>
+      </div>
+      <button class="mobile-toggle"><span>☰</span></button>
+    </div>
+    <div class="mobile-menu">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="tours.html">Tours</a><a href="destinations.html">Destinations</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn btn-accent" style="text-align:center;margin-top:0.5rem">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="fade-in">
+          <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div><p class="contact-label">Phone</p><p class="contact-value">0943647923</p></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div><p class="contact-label">Phone</p><p class="contact-value">0910206106</p></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div><p class="contact-label">Email</p><p class="contact-value">natihailemariam72@gmail.com</p></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div><p class="contact-label">Address</p><p class="contact-value">Axum, Tigray, Ethiopia</p></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕒</div>
+              <div><p class="contact-label">Hours</p><p class="contact-value">Mon – Sat: 8AM – 6PM (EAT)</p></div>
+            </div>
+            <div style="margin-top: 2rem; text-align: center;">
+              <p style="font-weight: bold; font-size: 0.9rem; color: var(--secondary);">Built by Azahell Tech</p>
+            </div>
+          </div>
+
+          <div class="contact-map">
+            <iframe
+              title="Axum, Tigray, Ethiopia Location"
+              src="https://www.google.com/maps/embed?pb=!1m14!1d14!2d40!1s0!2m0!1s0!2f0!3m3!1d39!2d38.76!3d9.02!2m3!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMDEnMTIuMCJOIDM4wrA0NSczNi4wIkU!5e0!3m2!1sen!2set!4v1"
+              width="100%"
+              height="200"
+              style="border:0"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="fade-in">
+          <div class="form-card">
+            <h2>Book Your Tour</h2>
+            <form id="booking-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="name">Full Name *</label>
+                  <input type="text" id="name" placeholder="Your name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input type="email" id="email" placeholder="you@email.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" placeholder="+1 234 567 890" />
+                </div>
+                <div class="form-group">
+                  <label for="destination">Destination</label>
+                  <select id="destination">
+                    <option value="">Select destination</option>
+                    <option>Lalibela</option>
+                    <option>Simien Mountains</option>
+                    <option>Danakil Depression</option>
+                    <option>Omo Valley</option>
+                    <option>Axum</option>
+                    <option>Gondar</option>
+                    <option>Harar</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="date">Travel Date</label>
+                  <input type="date" id="date" />
+                </div>
+                <div class="form-group">
+                  <label for="guests">Number of Guests</label>
+                  <input type="number" id="guests" min="1" placeholder="2" />
+                </div>
+                <div class="form-group form-full">
+                  <label for="message">Message *</label>
+                  <textarea id="message" rows="4" placeholder="Tell us about your dream trip..." required></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-accent" style="margin-top:1.5rem">✈️ Send Inquiry</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><div class="footer-brand">Axumite<span>Ethiopia</span>Tours</div><p class="footer-desc">Discover the cradle of civilization. We craft unforgettable Ethiopian adventures rooted in authenticity, culture, and breathtaking landscapes.</p><div class="social-links"><a href="#" class="social-link">f</a><a href="#" class="social-link">📷</a><a href="#" class="social-link">𝕏</a><a href="#" class="social-link">▶</a></div></div>
+        <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="tours.html">Tours</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><h4>Popular Tours</h4><ul><li><a href="tours.html">Historic Route Tour</a></li><li><a href="tours.html">Omo Valley Expedition</a></li><li><a href="tours.html">Danakil Depression</a></li><li><a href="tours.html">Simien Mountains Trek</a></li><li><a href="tours.html">Lalibela & Axum</a></li></ul></div>
+        <div><h4>Contact Us</h4><ul class="footer-contact"><li>📍 Axum, Tigray, Ethiopia</li><li>📞 +251 91 234 5678</li><li>✉️ info@axumitetours.com</li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AxumiteEthiopiaTours. All rights reserved.</p>
+        <p>Crafted with passion for Ethiopian tourism</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; font-weight: bold;">Built by Azahell Tech</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="javascript.js/ax.js"></script>
+</body>
+</html>

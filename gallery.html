@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — AxumiteEthiopiaTours</title>
+  <meta name="description" content="Explore our complete collection of Ethiopia's stunning landscapes, ancient sites, and cultural treasures." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="style.css/ax.css" />
+  <style>
+    .gallery-hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: var(--white);
+    }
+    .gallery-hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) { .gallery-hero h1 { font-size: 3.5rem; } }
+    .gallery-hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .gallery-item:hover {
+      box-shadow: var(--card-shadow-hover);
+      transform: translateY(-4px);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,76,92,0.8), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+    
+    .gallery-item .title {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+    
+    .gallery-item:hover .title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .gallery-section {
+      margin-bottom: 3rem;
+    }
+    
+    .gallery-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span>📞 +251 91 234 5678</span>
+        <span>✉️ info@axumitetours.com</span>
+      </div>
+      <span class="top-bar-right">📍 Addis Ababa, Ethiopia</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">Axumite<span>Ethiopia</span>Tours</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="tours.html">Tours</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="blog.html">Blog</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn-accent nav-book">Book Now</a>
+      </div>
+      <button class="mobile-toggle"><span>☰</span></button>
+    </div>
+    <div class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="tours.html">Tours</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="blog.html">Blog</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn btn-accent" style="text-align:center;margin-top:0.5rem">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- Gallery Hero -->
+  <section class="gallery-hero">
+    <h1>Gallery</h1>
+    <p>Discover Ethiopia's breathtaking landscapes, ancient wonders, and vibrant cultural heritage through our curated collection</p>
+  </section>
+
+  <!-- Destinations Gallery -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="gallery-section">
+        <h2>Destinations</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/axum.jpg" alt="Axum" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Ancient Axum</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/lalibela.jfif" alt="Lalibela" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Rock-Hewn Churches of Lalibela</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/gonder.jpg" alt="Gondar" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Royal Castles of Gondar</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/simen.jfif" alt="Simien Mountains" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Simien Mountains</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/harar.jfif" alt="Harar" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Walled City of Harar</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/omo.jfif" alt="Omo Valley" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Omo Valley</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/rift.jfif" alt="Danakil Depression" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Danakil Depression</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/lake tana.jfif" alt="Lake Tana" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Lake Tana & Blue Nile</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/bale mountaines.jfif" alt="Bale Mountains" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Bale Mountains</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/Abreha_and_Atsbeha_Church_02.jpg" alt="Abreha Atsbeha" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Abreha Atsbeha Church</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/yohanness.jfif" alt="Yohannes" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Yohannes Heritage</div>
+          </div>
+          <div class="gallery-item">
+            <img src="gerealta.jfif" alt="Gerealta Mountains" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Gerealta Mountains</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Scenic Landscapes</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/IMG_20250826_161316651.jpg" alt="Landscape" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Ethiopian Highlands</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/IMG_20250826_161321225.jpg" alt="Landscape" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Mountain Vista</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/IMG_20250827_102010157.jpg" alt="Landscape" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Valley View</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/IMG_20260212_171738846.jpg" alt="Landscape" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Dramatic Terrain</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/IMG_20251011_144608495.jpg" alt="Landscape" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Scenic Beauty</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/IMG_20251011_144822832.jpg" alt="Landscape" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Natural Wonder</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Cultural Heritage</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/IMG_20250721_045424_960.jpg" alt="Culture" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Cultural Site</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/IMG_20250904_181003_336~2.jpg" alt="Culture" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Historic Location</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/IMG_20250904_181006_711.jpg" alt="Culture" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Cultural Heritage</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/IMG_20260224_110501_695.jpg" alt="Culture" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Traditional Site</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/IMG_20260224_110508_674.jpg" alt="Culture" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Ancient Heritage</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/photo_1_2026-03-11_09-31-12.jpg" alt="Culture" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Historical Monument</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/photo_2026-03-11_09-32-19.jpg" alt="Culture" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Cultural Treasure</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Debre Damo</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/debra-Damo.jpg" alt="Debre Damo" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">6th Century Monastery</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/debra-Damo.jpg" alt="Debre Damo" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Mountain Access</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/debra-Damo.jpg" alt="Debre Damo" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Leather Rope Climb</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Al Nejashi Mosque</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/alnejashi1.jfif" alt="Al Nejashi Mosque" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">7th Century Mosque</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/alnejashi1.jfif" alt="Al Nejashi Mosque" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Oldest in Africa</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/alnejashi1.jfif" alt="Al Nejashi Mosque" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Islamic Heritage</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Erta Ale Volcano</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/erta ale.jpg" alt="Erta Ale Volcano" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Active Volcano</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/erta ale.jpg" alt="Erta Ale Volcano" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Lava Lake</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/erta ale.jpg" alt="Erta Ale Volcano" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Adventure Destination</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Dallol</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/dalol.webp" alt="Dallol" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Danakil Depression</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/dalol.webp" alt="Dallol" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Sulfur Pools</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/dalol.webp" alt="Dallol" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Colorful Formations</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-section">
+        <h2>Special Moments</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="images/Screenshot_20250716-122822.TikTok.png" alt="Special Moment" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Journey Highlight</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/Screenshot_20250716-122836.TikTok.png" alt="Special Moment" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Travel Memory</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/Screenshot_20250716-123152.TikTok.png" alt="Special Moment" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Experience</div>
+          </div>
+          <div class="gallery-item">
+            <img src="images/Screenshot_20250716-143936.TikTok.png" alt="Special Moment" loading="lazy" />
+            <div class="overlay"></div>
+            <div class="title">Adventure</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Axumite<span>Ethiopia</span>Tours</div>
+          <p class="footer-desc">Discover the cradle of civilization. We craft unforgettable Ethiopian adventures rooted in authenticity, culture, and breathtaking landscapes.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">f</a><a href="#" class="social-link">📷</a><a href="#" class="social-link">𝕏</a><a href="#" class="social-link">▶</a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="tours.html">Tours</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="blog.html">Blog</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul>
+        </div>
+        <div>
+          <h4>Popular Tours</h4>
+          <ul><li><a href="tours.html">Historic Route Tour</a></li><li><a href="tours.html">Omo Valley Expedition</a></li><li><a href="tours.html">Danakil Depression</a></li><li><a href="tours.html">Simien Mountains Trek</a></li><li><a href="tours.html">Lalibela & Axum</a></li></ul>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact"><li>📍 Bole Road, Addis Ababa, Ethiopia</li><li>📞 +251 91 234 5678</li><li>✉️ info@axumitetours.com</li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AxumiteEthiopiaTours. All rights reserved.</p>
+        <p>Crafted with passion for Ethiopian tourism</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="javascript.js/ax.js"></script>
+</body>
+</html>
