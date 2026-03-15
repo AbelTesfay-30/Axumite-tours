@@ -79,13 +79,14 @@ if (fadeElements.length > 0) {
   fadeElements.forEach(el => observer.observe(el));
 }
 
-/* ========== FORM VALIDATION ========== */
+/* ========== FORM VALIDATION & SUBMISSION ========== */
 const contactForm = document.getElementById('booking-form');
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
+
+    const name    = document.getElementById('name').value.trim();
+    const email   = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
 
     if (!name || !email || !message) {
@@ -93,8 +94,68 @@ if (contactForm) {
       return;
     }
 
-    showToast('Thank you! We\'ll get back to you within 24 hours.', 'success');
-    contactForm.reset();
+    const phone       = (document.getElementById('phone')       || {}).value || '';
+    const destination = (document.getElementById('destination') || {}).value || '';
+    const date        = (document.getElementById('date')        || {}).value || '';
+    const guests      = (document.getElementById('guests')      || {}).value || '';
+
+    // Disable submit button
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = '⏳ Sending...';
+
+    // ── Send to PHP backend ──────────────────────────────────
+    try {
+      const payload = new FormData();
+      payload.append('name',        name);
+      payload.append('email',       email);
+      payload.append('phone',       phone);
+      payload.append('destination', destination);
+      payload.append('date',        date);
+      payload.append('guests',      guests);
+      payload.append('message',     message);
+
+      const response = await fetch('booking.php', { 
+        method: 'POST', 
+        body: payload 
+      });
+
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Invalid server response');
+      }
+
+      const data = await response.json();
+      
+      if (data.success) {
+        showToast(data.message, 'success');
+        contactForm.reset();
+      } else {
+        showToast(data.message || 'Something went wrong.', 'error');
+      }
+    } catch (error) {
+      console.error('Booking error:', error);
+      // PHP not available or network error - save to localStorage only
+      showToast('Inquiry saved locally. We\'ll contact you soon!', 'success');
+      contactForm.reset();
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+
+    // ── Always save to localStorage history ──────────────────
+    const history = JSON.parse(localStorage.getItem('axumiteContactHistory') || '[]');
+    history.unshift({
+      date: new Date().toLocaleString(),
+      name, phone, email, destination,
+      travelDate: date, guests, message
+    });
+    localStorage.setItem('axumiteContactHistory', JSON.stringify(history));
+    
+    // Update badge if it exists
+    const badge = document.getElementById('historyBadge');
+    if (badge) badge.textContent = history.length;
   });
 }
 

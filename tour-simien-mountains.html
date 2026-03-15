@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simien Mountains Trek — AxumiteEthiopiaTours</title>
+  <meta name="description" content="Trek through Ethiopia's breathtaking Simien Mountains, 'The Roof of Africa,' reaching altitudes over 4,000 meters and spotting rare endemic wildlife." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="style.css/ax.css" />
+  <style>
+    .tour-hero {
+      background: linear-gradient(rgba(15,76,92,0.7), rgba(193,154,107,0.5)), url('images/simen.jfif') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .tour-hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    
+    .tour-hero-content p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    }
+    
+    .tour-details {
+      background: white;
+      padding: 3rem 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      margin: -50px auto 0;
+      max-width: 1200px;
+      border-radius: 20px;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .tour-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+    
+    .info-card {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--light);
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+    
+    .info-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .info-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .info-label {
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .info-value {
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+    
+    .tour-description {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .tour-description h2 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .tour-description p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    
+    .tour-highlights {
+      background: var(--light);
+      padding: 3rem 2rem;
+      margin: 2rem 0;
+      border-radius: 15px;
+    }
+    
+    .tour-highlights h3 {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .highlight-icon {
+      font-size: 1.5rem;
+      min-width: 40px;
+      height: 40px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .highlight-text h4 {
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .booking-section {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    
+    .booking-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .price-tag {
+      font-size: 3rem;
+      font-weight: 800;
+      margin: 2rem 0;
+    }
+    
+    @media (max-width: 768px) {
+      .tour-hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .tour-hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      .tour-details {
+        margin: -30px 1rem 0;
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span>📞  0943647923</span>
+        <span>✉️natihailemariam72@gmail.com </span>
+      </div>
+      <span class="top-bar-right">📍 Axum,Tigray, Ethiopia</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">Axumite<span>Ethiopia</span>Tours</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="about-ethiopia.html">About Ethiopia</a>
+        <a href="tours.html">Tours</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="blog.html">Blog</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn-accent nav-book">Book Now</a>
+      </div>
+      <button class="mobile-toggle"><span>☰</span></button>
+    </div>
+    <div class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="about-ethiopia.html">About Ethiopia</a>
+      <a href="tours.html">Tours</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="blog.html">Blog</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn btn-accent" style="text-align:center;margin-top:0.5rem">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- Tour Hero Section -->
+  <section class="tour-hero" style="background: linear-gradient(rgba(15,76,92,0.5), rgba(193,154,107,0.3)), url('images/simen.jfif') center/100% 100% no-repeat; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative;">
+    <div class="container">
+      <div class="tour-hero-content">
+        <h1 style="font-size: 4rem; font-weight: 800; margin-bottom: 1.5rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.8);">Simien Mountains Trek</h1>
+        <p style="font-size: 1.8rem; max-width: 900px; margin: 0 auto 2rem auto; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); line-height: 1.6;">Trek through "The Roof of Africa" and discover Ethiopia's breathtaking highland wilderness</p>
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); opacity: 0.9;">Experience 6 days of trekking through dramatic escarpments, deep valleys, and Afro-alpine meadows while spotting rare endemic wildlife including Gelada baboons and Ethiopian wolves.</p>
+        <div style="margin-top: 2rem;">
+          <a href="#tour-details" class="btn btn-accent" style="font-size: 1.1rem; padding: 1rem 2rem;">Explore This Trek</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Book Now Box -->
+    <div style="position: absolute; bottom: 2rem; right: 2rem; background: rgba(255,255,255,0.95); padding: 1.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); color: var(--text); min-width: 250px;">
+      <h4 style="margin-bottom: 1rem; color: var(--secondary); font-size: 1.3rem;">Book This Trek</h4>
+      <p style="font-size: 2rem; font-weight: 800; color: var(--accent); margin-bottom: 0.5rem;">From $1,450</p>
+      <p style="font-size: 0.9rem; margin-bottom: 1rem;">6 Days • 4-10 People</p>
+      <a href="contact.html" class="btn btn-primary" style="width: 100%; font-size: 0.9rem; color: #28a745;">Book Now</a>
+    </div>
+  </section>
+
+  <!-- Tour Details -->
+  <section class="tour-details">
+    <div class="tour-info-grid">
+      <div class="info-card">
+        <div class="info-icon">📍</div>
+        <div class="info-label">Location</div>
+        <div class="info-value">Simien Mountains</div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🕒</div>
+        <div class="info-label">Duration</div>
+        <div class="info-value">6 Days</div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">👥</div>
+        <div class="info-label">Group Size</div>
+        <div class="info-value">4-10 People</div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">⭐</div>
+        <div class="info-label">Rating</div>
+        <div class="info-value">5.0/5.0</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tour Description -->
+  <section class="tour-description">
+    <h2>The Roof of Africa Adventure</h2>
+    <p>Trek through Ethiopia's breathtaking Simien Mountains, "The Roof of Africa," reaching altitudes over 4,000 meters. This 6-day adventure takes you through dramatic escarpments, deep valleys, and Afro-alpine meadows that create some of Africa's most stunning mountain landscapes.</p>
+    
+    <p>This UNESCO World Heritage wilderness is home to some of the continent's most remarkable endemic wildlife. Spot rare Gelada baboons with their striking red chests, the elusive Walia ibex found nowhere else on Earth, and the critically endangered Ethiopian wolf - the rarest canid in the world. Each day brings new discoveries as you traverse diverse ecosystems from lush forests to otherworldly Afro-alpine meadows.</p>
+    
+    <p>Camp under spectacular star-filled skies in pristine wilderness, visit traditional highland villages where time seems to stand still, and witness breathtaking sunrise and sunset views from mountain peaks that touch the clouds. Your expert local guide will share deep knowledge of the mountains' ecology, geology, and cultural significance, making this trek both physically rewarding and spiritually enriching.</p>
+
+    <div class="tour-highlights">
+      <h3>Trek Highlights</h3>
+      <div class="highlights-grid">
+        <div class="highlight-item">
+          <div class="highlight-icon">🐺</div>
+          <div class="highlight-text">
+            <h4>Ethiopian Wolves</h4>
+            <p>Spot the world's rarest canid in its natural habitat</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🐒</div>
+          <div class="highlight-text">
+            <h4>Gelada Baboons</h4>
+            <p>Observe large troops of these unique highland primates</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🐐</div>
+          <div class="highlight-text">
+            <h4>Walia Ibex</h4>
+            <p>Discover Ethiopia's endemic mountain goat species</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🏔️</div>
+          <div class="highlight-text">
+            <h4>4,000+ Meter Peaks</h4>
+            <p>Reach the summit of Ras Dashen, Ethiopia's fourth highest peak</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">⛺</div>
+          <div class="highlight-text">
+            <h4>Wilderness Camping</h4>
+            <p>Camp under spectacular star-filled African skies</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🏛️</div>
+          <div class="highlight-text">
+            <h4>UNESCO Heritage</h4>
+            <p>Trek through a protected World Heritage wilderness area</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="booking-section">
+    <div class="container">
+      <h2>Ready to Conquer the Roof of Africa?</h2>
+      <p>Join us on this unforgettable 6-day trekking adventure through Ethiopia's spectacular highlands</p>
+      <div class="price-tag">From $1,450</div>
+      <p style="margin-bottom: 2rem;">All-inclusive package with camping equipment, meals, transportation, and expert mountain guide</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="contact.html" class="btn btn-light" style="font-size: 1.1rem; padding: 1rem 2rem; color: #28a745;">Book This Trek</a>
+        <a href="tours.html" class="btn btn-outline-light" style="font-size: 1.1rem; padding: 1rem 2rem;">View All Tours</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Axumite<span>Ethiopia</span>Tours</div>
+          <p class="footer-desc">Discover the cradle of civilization. We craft unforgettable Ethiopian adventures rooted in authenticity, culture, and breathtaking landscapes.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="about-ethiopia.html">About Ethiopia</a></li><li><a href="tours.html">Tours</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="blog.html">Blog</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul>
+        </div>
+        <div>
+          <h4>Popular Tours</h4>
+          <ul><li><a href="tours.html">Historic Route Tour</a></li><li><a href="tours.html">Omo Valley Expedition</a></li><li><a href="tours.html">Danakil Depression</a></li><li><a href="tours.html">Simien Mountains Trek</a></li><li><a href="tours.html">Lalibela & Axum</a></li></ul>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li>📍 Axum, Tigray, Ethiopia</li>
+            <li>📞 0943647923</li>
+            <li>✉️ natihailemariam72@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AxumiteEthiopiaTours. All rights reserved.</p>
+        <p>Crafted with passion for Ethiopian tourism</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; font-weight: bold;">Built by Azahell Tech</p>
+        <p style="margin-top: 0.3rem; font-size: 0.7rem; color: var(--muted);">📞 0991053717 | 📞 0989429290</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="javascript.js/ax.js"></script>
+</body>
+</html>

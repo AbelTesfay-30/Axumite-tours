@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Booking Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background: #0F4C5C; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:disabled { background: #ccc; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .debug { background: #e2e3e5; color: #383d41; border: 1px solid #d6d8db; margin-top: 10px; padding: 10px; font-family: monospace; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h1>Debug Booking Form</h1>
+    
+    <form id="bookingForm">
+        <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        
+        <div class="form-group">
+            <label for="destination">Destination</label>
+            <select id="destination" name="destination">
+                <option value="">Select destination</option>
+                <option>Lalibela</option>
+                <option>Simien Mountains</option>
+                <option>Danakil Depression</option>
+                <option>Omo Valley</option>
+                <option>Axum</option>
+                <option>Gondar</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="date">Travel Date</label>
+            <input type="date" id="date" name="date">
+        </div>
+        
+        <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" min="1" value="2">
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        
+        <button type="submit" id="submitBtn">Submit Booking</button>
+    </form>
+    
+    <div id="result"></div>
+    <div id="debug"></div>
+
+    <script>
+        const form = document.getElementById('bookingForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const resultDiv = document.getElementById('result');
+        const debugDiv = document.getElementById('debug');
+
+        function showResult(message, type) {
+            resultDiv.innerHTML = `<div class="${type}">${message}</div>`;
+        }
+
+        function showDebug(message) {
+            debugDiv.textContent += message + '\n';
+        }
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            debugDiv.textContent = '';
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            try {
+                showDebug('=== FORM SUBMISSION START ===');
+                
+                // Collect form data
+                const formData = new FormData(form);
+                showDebug('Form data collected:');
+                
+                for (let [key, value] of formData.entries()) {
+                    showDebug(`  ${key}: ${value}`);
+                }
+                
+                // Validate required fields
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const message = formData.get('message');
+                
+                showDebug('\nValidation:');
+                showDebug(`  Name: "${name}" (required: ${!!name})`);
+                showDebug(`  Email: "${email}" (required: ${!!email})`);
+                showDebug(`  Message: "${message}" (required: ${!!message})`);
+                
+                if (!name || !email || !message) {
+                    throw new Error('Please fill in all required fields');
+                }
+                
+                showDebug('\nSending request to booking.php...');
+                
+                // Send to server
+                const response = await fetch('booking.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                showDebug(`Response status: ${response.status} ${response.statusText}`);
+                showDebug(`Response headers: ${JSON.stringify(Object.fromEntries(response.headers))}`);
+                
+                const contentType = response.headers.get('content-type');
+                showDebug(`Content-Type: ${contentType}`);
+                
+                if (!contentType || !contentType.includes('application/json')) {
+                    const text = await response.text();
+                    showDebug(`Response text (not JSON):\n${text}`);
+                    throw new Error('Server returned non-JSON response');
+                }
+                
+                const data = await response.json();
+                showDebug(`JSON response: ${JSON.stringify(data, null, 2)}`);
+                
+                if (data.success) {
+                    showResult(`✅ Success: ${data.message}`, 'success');
+                    form.reset();
+                } else {
+                    showResult(`❌ Error: ${data.message}`, 'error');
+                }
+                
+            } catch (error) {
+                showDebug(`Error: ${error.message}`);
+                showDebug(`Stack: ${error.stack}`);
+                showResult(`❌ Error: ${error.message}`, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Booking';
+                showDebug('=== FORM SUBMISSION END ===\n');
+            }
+        });
+
+        // Test direct PHP access
+        fetch('booking.php')
+            .then(response => response.text())
+            .then(text => {
+                showDebug('=== DIRECT PHP ACCESS TEST ===');
+                showDebug(`GET booking.php response:\n${text}`);
+            })
+            .catch(error => {
+                showDebug(`Direct PHP access error: ${error.message}`);
+            });
+    </script>
+</body>
+</html>

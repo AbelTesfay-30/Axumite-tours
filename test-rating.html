@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Rating System</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Rating System Test</h1>
+    
+    <div class="test-section">
+        <h3>Current localStorage Data:</h3>
+        <div id="storageDisplay"></div>
+        <button onclick="checkStorage()">Check Storage</button>
+        <button onclick="clearStorage()">Clear All Storage</button>
+        <button onclick="clearSamielRating()">Remove Samiel Rating</button>
+    </div>
+    
+    <div class="test-section">
+        <h3>Add Test Rating:</h3>
+        <input type="text" id="testName" placeholder="Name" value="Test User">
+        <input type="text" id="testCountry" placeholder="Country" value="Test Country">
+        <input type="number" id="testRating" placeholder="Rating (1-5)" value="5" min="1" max="5">
+        <input type="text" id="testComment" placeholder="Comment" value="This is a test rating!">
+        <button onclick="addTestRating()">Add Test Rating</button>
+    </div>
+    
+    <div class="test-section">
+        <h3>Test Results:</h3>
+        <div id="testResults"></div>
+    </div>
+
+    <script>
+        function checkStorage() {
+            const ratings = JSON.parse(localStorage.getItem('axumiteRatings') || '[]');
+            const display = document.getElementById('storageDisplay');
+            
+            if (ratings.length === 0) {
+                display.innerHTML = '<p class="error">No ratings found in localStorage</p>';
+            } else {
+                display.innerHTML = `
+                    <p class="success">Found ${ratings.length} rating(s):</p>
+                    <pre>${JSON.stringify(ratings, null, 2)}</pre>
+                `;
+            }
+        }
+        
+        function clearStorage() {
+            localStorage.removeItem('axumiteRatings');
+            localStorage.removeItem('ratingModalShown');
+            localStorage.removeItem('contactRatingModalShown');
+            checkStorage();
+            document.getElementById('testResults').innerHTML = '<p class="success">Storage cleared!</p>';
+        }
+        
+        function clearSamielRating() {
+            let ratings = JSON.parse(localStorage.getItem('axumiteRatings') || '[]');
+            const originalCount = ratings.length;
+            
+            // Remove any rating by Samiel (case insensitive)
+            ratings = ratings.filter(rating => 
+                !rating.name.toLowerCase().includes('samiel')
+            );
+            
+            localStorage.setItem('axumiteRatings', JSON.stringify(ratings));
+            
+            const removedCount = originalCount - ratings.length;
+            if (removedCount > 0) {
+                document.getElementById('testResults').innerHTML = 
+                    `<p class="success">Removed ${removedCount} rating(s) by Samiel!</p>`;
+            } else {
+                document.getElementById('testResults').innerHTML = 
+                    '<p>No ratings by Samiel found.</p>';
+            }
+            
+            checkStorage();
+        }
+        
+        function addTestRating() {
+            const name = document.getElementById('testName').value.trim();
+            const country = document.getElementById('testCountry').value.trim();
+            const rating = parseInt(document.getElementById('testRating').value);
+            const comment = document.getElementById('testComment').value.trim();
+            
+            if (!name || !country || !comment || rating < 1 || rating > 5) {
+                document.getElementById('testResults').innerHTML = '<p class="error">Please fill all fields correctly</p>';
+                return;
+            }
+            
+            const newRating = {
+                name: name,
+                country: country,
+                comment: comment,
+                rating: rating,
+                date: new Date().toLocaleDateString()
+            };
+            
+            let ratings = JSON.parse(localStorage.getItem('axumiteRatings') || '[]');
+            ratings.push(newRating);
+            localStorage.setItem('axumiteRatings', JSON.stringify(ratings));
+            
+            document.getElementById('testResults').innerHTML = `
+                <p class="success">Test rating added successfully!</p>
+                <pre>${JSON.stringify(newRating, null, 2)}</pre>
+            `;
+            
+            checkStorage();
+        }
+        
+        // Auto-check storage on load
+        window.onload = checkStorage;
+    </script>
+</body>
+</html>

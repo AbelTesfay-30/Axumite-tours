@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Ethiopia — AxumiteEthiopiaTours</title>
+  <meta name="description" content="Discover Ethiopia - the cradle of civilization, home to ancient kingdoms, UNESCO World Heritage sites, diverse cultures, and breathtaking landscapes." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="style.css/ax.css" />
+  <style>
+    .destination-detail {
+      margin-bottom: 4rem;
+      padding: 2rem 0;
+    }
+    
+    .destination-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .destination-grid.reverse {
+      direction: rtl;
+    }
+    
+    .destination-grid.reverse > * {
+      direction: ltr;
+    }
+    
+    .destination-text h3 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      font-family: var(--font-display);
+    }
+    
+    .destination-subtitle {
+      font-size: 1.2rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    
+    .destination-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    
+    .destination-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .highlight {
+      background: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    
+    .destination-image {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .destination-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .destination-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    .image-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: white;
+      padding: 2rem 1rem 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+      .destination-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .destination-grid.reverse {
+        direction: ltr;
+      }
+      
+      .destination-text h3 {
+        font-size: 2rem;
+      }
+      
+      .destination-image img {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span>📞  0943647923</span>
+        <span>✉️natihailemariam72@gmail.com </span>
+      </div>
+      <span class="top-bar-right">📍 Axum,Tigray, Ethiopia</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">Axumite<span>Ethiopia</span>Tours</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="about-ethiopia.html" class="active">About Ethiopia</a>
+        <a href="tours.html">Tours</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="blog.html">Blog</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn btn-accent nav-book">Book Now</a>
+      </div>
+      <button class="mobile-toggle"><span>☰</span></button>
+    </div>
+    <div class="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="about-ethiopia.html" class="active">About Ethiopia</a>
+      <a href="tours.html">Tours</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="blog.html">Blog</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn btn-accent" style="text-align:center;margin-top:0.5rem">Book Now</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Full Screen Background -->
+  <section class="hero-section" style="background: linear-gradient(rgba(15,76,92,0.6), rgba(193,154,107,0.4)), url('images/Ethiopia.jpg') center/100% 100% no-repeat; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative;">
+    <div class="container">
+      <div class="hero-content">
+        <h1 style="font-size: 4rem; font-weight: 800; margin-bottom: 1.5rem; text-shadow: 3px 3px 6px rgba(0,0,0,0.8);">About Ethiopia</h1>
+        <p style="font-size: 1.8rem; max-width: 900px; margin: 0 auto 2rem auto; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); line-height: 1.6;">The Cradle of Human Civilization - Where History, Culture, and Nature Converge</p>
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); opacity: 0.9;">Discover a land of ancient kingdoms, breathtaking landscapes, and diverse cultures that have shaped human history for over 3,000 years. From the birthplace of humanity to the roof of Africa, Ethiopia offers an unparalleled journey through time.</p>
+        <div style="margin-top: 2rem;">
+          <a href="#destinations" class="btn btn-accent" style="font-size: 1.1rem; padding: 1rem 2rem;">Explore Ethiopia's Wonders</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ethiopia's Iconic Destinations -->
+  <section id="destinations" class="section-padding">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Ethiopia's Iconic Destinations</h2>
+        <p>Journey through the crown jewels of Ethiopian heritage and natural wonders</p>
+        <div class="divider"></div>
+      </div>
+      
+      <!-- Axum -->
+      <div class="destination-detail fade-in">
+        <div class="destination-grid">
+          <div class="destination-text">
+            <h3>Ancient Axum</h3>
+            <p class="destination-subtitle">The Heart of an Ancient Empire</p>
+            <p>Axum, the capital of the ancient Aksumite Empire (400 BCE - 1000 CE), stands as one of Africa's most impressive archaeological sites. This powerful kingdom controlled trade across the Red Sea and was home to the legendary Queen of Sheba.</p>
+            <p>Today, Axum's towering stelae - massive granite obelisks reaching up to 24 meters high - mark royal tombs and testify to sophisticated engineering skills. The Church of St. Mary of Zion, Ethiopia's holiest shrine, is believed to house the Ark of the Covenant.</p>
+            <div class="destination-highlights">
+              <span class="highlight">🏛️ UNESCO World Heritage Site</span>
+              <span class="highlight">👑 Queen of Sheba's Kingdom</span>
+              <span class="highlight">📦 Ark of the Covenant</span>
+            </div>
+          </div>
+          <div class="destination-image">
+            <img src="images/axum.jpg" alt="Ancient Axum Stelae" loading="lazy" />
+            <div class="image-caption">Towering stelae of ancient Axum</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lalibela -->
+      <div class="destination-detail fade-in">
+        <div class="destination-grid reverse">
+          <div class="destination-text">
+            <h3>Lalibela</h3>
+            <p class="destination-subtitle">The Eighth Wonder of the World</p>
+            <p>In the 12th century, King Lalibela carved 11 magnificent churches entirely from single blocks of rock, creating what many consider the eighth wonder of the world. These monolithic churches, connected by underground tunnels, remain active places of worship today.</p>
+            <p>Bete Giyorgis (Church of St. George) is the most famous, carved in the shape of a cross from the ground down. The complex represents a "New Jerusalem" and showcases extraordinary architectural and artistic achievement.</p>
+            <div class="destination-highlights">
+              <span class="highlight">⛪ 11 Rock-Hewn Churches</span>
+              <span class="highlight">🕍 Active Pilgrimage Site</span>
+              <span class="highlight">🎨 Medieval Architecture</span>
+            </div>
+          </div>
+          <div class="destination-image">
+            <img src="images/lalibela.jfif" alt="Lalibela Rock Churches" loading="lazy" />
+            <div class="image-caption">Bete Giyorgis - The cross-shaped church</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danakil Depression -->
+      <div class="destination-detail fade-in">
+        <div class="destination-grid">
+          <div class="destination-text">
+            <h3>Danakil Depression</h3>
+            <p class="destination-subtitle">The Hottest Place on Earth</p>
+            <p>The Danakil Depression is one of Earth's most extreme environments - the hottest inhabited place on the planet, with temperatures reaching up to 50°C (122°F). This otherworldly landscape features colorful sulfur springs, salt flats, and active volcanoes.</p>
+            <p>At its heart lies Erta Ale, one of the world's few volcanoes with a permanent lava lake. The nearby Dallol sulfur springs create a surreal landscape of neon-colored mineral formations, unlike anything else on Earth.</p>
+            <div class="destination-highlights">
+              <span class="highlight">🌋 Active Volcanoes</span>
+              <span class="highlight">🌡️ 50°C Temperatures</span>
+              <span class="highlight">🎨 Colorful Sulfur Springs</span>
+            </div>
+          </div>
+          <div class="destination-image">
+            <img src="images/dalol.webp" alt="Danakil Depression" loading="lazy" />
+            <div class="image-caption">Dallol's colorful mineral formations</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yiha -->
+      <div class="destination-detail fade-in">
+        <div class="destination-grid reverse">
+          <div class="destination-text">
+            <h3>Yiha</h3>
+            <p class="destination-subtitle">Hidden Mountain Heritage</p>
+            <p>Yiha represents the rich cultural and religious heritage of Ethiopia's highland regions. This area showcases ancient rock-hewn churches and monasteries perched dramatically on mountain cliffs, demonstrating the deep spiritual traditions that have flourished for centuries.</p>
+            <p>The Yiha region offers breathtaking panoramic views and provides insight into traditional Ethiopian Orthodox Christianity, with its unique rituals, ancient manuscripts, and vibrant religious ceremonies that continue to this day.</p>
+            <div class="destination-highlights">
+              <span class="highlight">⛪ Ancient Churches</span>
+              <span class="highlight">🏔️ Mountain Monasteries</span>
+              <span class="highlight">📜 Religious Heritage</span>
+            </div>
+          </div>
+          <div class="destination-image">
+            <img src="images/yiha (2).jfif" alt="Yiha Heritage" loading="lazy" />
+            <div class="image-caption">Traditional Yiha mountain heritage</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tiya -->
+      <div class="destination-detail fade-in">
+        <div class="destination-grid">
+          <div class="destination-text">
+            <h3>Tiya Archaeological Site</h3>
+            <p class="destination-subtitle">Mysterious Ancient Stelae Field</p>
+            <p>Tiya is a UNESCO World Heritage site featuring one of Ethiopia's most intriguing archaeological mysteries. This ancient burial ground contains over 40 carved stone stelae, some reaching up to 3 meters high, engraved with mysterious symbols and human representations.</p>
+            <p>Dating between the 12th and 14th centuries, these stelae mark graves of ancient elites and provide fascinating insight into pre-Christian Ethiopian culture. The exact meaning of the symbols remains debated by archaeologists.</p>
+            <div class="destination-highlights">
+              <span class="highlight">🏛️ UNESCO World Heritage</span>
+              <span class="highlight">🗿 40+ Ancient Stelae</span>
+              <span class="highlight">❓ Mysterious Symbols</span>
+            </div>
+          </div>
+          <div class="destination-image">
+            <img src="images/tiya.jfif" alt="Tiya Archaeological Site" loading="lazy" />
+            <div class="image-caption">Ancient stelae at Tiya archaeological site</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bale Mountains -->
+      <div class="destination-detail fade-in">
+        <div class="destination-grid reverse">
+          <div class="destination-text">
+            <h3>Bale Mountains National Park</h3>
+            <p class="destination-subtitle">The Roof of the Horn of Africa</p>
+            <p>Bale Mountains National Park encompasses Ethiopia's second-highest peak, Tullu Dimtu (4,377 meters), and protects some of Africa's most unique alpine ecosystems. This pristine wilderness is home to extraordinary biodiversity found nowhere else on Earth.</p>
+            <p>The park protects the endangered Ethiopian wolf, the rarest canid in the world, alongside mountain nyala, giant mole rats, and over 300 bird species. Its diverse landscapes range from Afro-alpine moorlands to cloud forests and grasslands.</p>
+            <div class="destination-highlights">
+              <span class="highlight">🐺 Ethiopian Wolves</span>
+              <span class="highlight">🏔️ 4,377m Peak</span>
+              <span class="highlight">🌿 Unique Ecosystems</span>
+            </div>
+          </div>
+          <div class="destination-image">
+            <img src="images/bale mountaines.jfif" alt="Bale Mountains" loading="lazy" />
+            <div class="image-caption">Afro-alpine landscape of Bale Mountains</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Historical Significance -->
+  <section class="section-padding section-gradient-bg">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Historical Legacy</h2>
+        <p>Ancient kingdoms and archaeological wonders</p>
+        <div class="divider"></div>
+      </div>
+      <div class="grid grid-3">
+        <div class="value-card fade-in">
+          <div class="value-icon">👑</div>
+          <h3>Ancient Kingdom of Axum</h3>
+          <p>Home to the legendary Queen of Sheba, Axum was a major trading empire from 400 BCE to 1000 CE. Its towering stelae and royal tombs testify to a sophisticated civilization that traded across the Red Sea.</p>
+        </div>
+        <div class="value-card fade-in">
+          <div class="value-icon">⛪</div>
+          <h3>Lalibela's Rock Churches</h3>
+          <p>Carved entirely from single blocks of rock in the 12th century, these 11 monolithic churches are considered the eighth wonder of the world and remain active places of worship today.</p>
+        </div>
+        <div class="value-card fade-in">
+          <div class="value-icon">📜</div>
+          <h3>Gondar's Camelot</h3>
+          <p>The medieval capital of Ethiopia, Gondar's royal castles and palaces earned it the nickname "Camelot of Africa." These 17th-century structures showcase unique Ethiopian architecture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Natural Wonders -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Natural Diversity</h2>
+        <p>From Africa's roof to the hottest place on Earth</p>
+        <div class="divider"></div>
+      </div>
+      <div class="grid grid-4">
+        <div class="dest-card fade-in" style="cursor: default;">
+          <img src="images/simen.jfif" alt="Simien Mountains" loading="lazy" />
+          <div class="dest-overlay"></div>
+          <div class="dest-content">
+            <h3>Simien Mountains</h3>
+            <p class="dest-desc">UNESCO World Heritage site with endemic wildlife and dramatic landscapes</p>
+          </div>
+        </div>
+        <div class="dest-card fade-in" style="cursor: default;">
+          <img src="images/dalol.webp" alt="Danakil Depression" loading="lazy" />
+          <div class="dest-overlay"></div>
+          <div class="dest-content">
+            <h3>Danakil Depression</h3>
+            <p class="dest-desc">The hottest place on Earth with colorful sulfur springs and salt flats</p>
+          </div>
+        </div>
+        <div class="dest-card fade-in" style="cursor: default;">
+          <img src="images/erta ale.jpg" alt="Erta Ale" loading="lazy" />
+          <div class="dest-overlay"></div>
+          <div class="dest-content">
+            <h3>Erta Ale Volcano</h3>
+            <p class="dest-desc">Active volcano with one of the world's few permanent lava lakes</p>
+          </div>
+        </div>
+        <div class="dest-card fade-in" style="cursor: default;">
+          <img src="images/omo.jfif" alt="Omo Valley" loading="lazy" />
+          <div class="dest-overlay"></div>
+          <div class="dest-content">
+            <h3>Omo Valley</h3>
+            <p class="dest-desc">Home to diverse tribal cultures and ancient traditions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cultural Heritage -->
+  <section class="section-padding stats-bar">
+    <div class="container">
+      <div class="stats-grid fade-in">
+        <div><p class="stat-value">80+</p><p class="stat-label">Ethnic Groups</p></div>
+        <div><p class="stat-value">90+</p><p class="stat-label">Languages</p></div>
+        <div><p class="stat-value">9</p><p class="stat-label">UNESCO Sites</p></div>
+        <div><p class="stat-value">3.2M</p><p class="stat-label">Years of Human History</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Religious Heritage -->
+  <section class="section-padding section-gradient-bg">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Spiritual Heritage</h2>
+        <p>A land of faith and ancient traditions</p>
+        <div class="divider"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <h3>Christian Heritage</h3>
+          <p>Ethiopia is one of the oldest Christian nations in the world, with a rich Orthodox tradition dating back to the 4th century. The Ethiopian Orthodox Church, with its unique traditions, ancient manuscripts, and spectacular churches, plays a central role in the country's cultural identity.</p>
+          
+          <h3 style="margin-top: 2rem;">Islamic Heritage</h3>
+          <p>Home to the Al Nejashi Mosque, one of Africa's oldest mosques from the 7th century, Ethiopia has a deep Islamic heritage. The city of Harar, with its 99 mosques and unique hyena feeding tradition, is considered the fourth holiest city in Islam.</p>
+          
+          <h3 style="margin-top: 2rem;">Judaic Heritage</h3>
+          <p>The Beta Israel community, one of the world's oldest Jewish communities, has preserved ancient traditions in Ethiopia for millennia, contributing to the country's rich religious tapestry.</p>
+        </div>
+        <div class="about-img-wrap fade-in">
+          <img src="images/Abreha_and_Atsbeha_Church_02.jpg" alt="Ethiopian Religious Heritage" />
+          <div class="about-badge">
+            <span>🙏</span>
+            <div>
+              <p class="badge-number">4th</p>
+              <p class="badge-label">Century CE Christianity</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Geographic Diversity -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Geographic Wonders</h2>
+        <p>From Africa's rooftop to the Great Rift Valley</p>
+        <div class="divider"></div>
+      </div>
+      <div class="grid grid-3">
+        <div class="value-card fade-in">
+          <div class="value-icon">🏔️</div>
+          <h3>Highlands</h3>
+          <p>The Ethiopian Highlands, often called "The Roof of Africa," rise to over 4,500 meters and include the Simien and Bale Mountains, home to unique endemic species like the Gelada baboon and Ethiopian wolf.</p>
+        </div>
+        <div class="value-card fade-in">
+          <div class="value-icon">🌋</div>
+          <h3>Rift Valley</h3>
+          <p>The Great Rift Valley splits Ethiopia in two, creating dramatic escarpments, crater lakes, and hot springs. This geological wonder is visible from space and continues to shape the landscape.</p>
+        </div>
+        <div class="value-card fade-in">
+          <div class="value-icon">🏜️</div>
+          <h3>Deserts & Lowlands</h3>
+          <p>From the Danakil Depression, one of Earth's hottest and lowest places, to the semi-arid lowlands of the Ogaden, Ethiopia's diverse landscapes support incredible biodiversity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wildlife & Biodiversity -->
+  <section class="section-padding stats-bar">
+    <div class="container">
+      <div class="section-header fade-in" style="text-align: center;">
+        <h2>Unique Wildlife</h2>
+        <p>Endemic species found nowhere else on Earth</p>
+        <div class="divider" style="margin: 0 auto;"></div>
+      </div>
+      <div class="grid grid-4 fade-in">
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🐒</div>
+          <h4>Gelada Baboon</h4>
+          <p>Found only in Ethiopian highlands</p>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🐺</div>
+          <h4>Ethiopian Wolf</h4>
+          <p>Rarest canid in the world</p>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🦌</div>
+          <h4>Mountain Nyala</h4>
+          <p>Endemic antelope species</p>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🦅</div>
+          <h4>Raptors & Birds</h4>
+          <p>Over 860 bird species</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="team-cta fade-in">
+        <div class="section-header">
+          <h2>Experience Ethiopia's Wonders</h2>
+          <p>Join us on a journey through this extraordinary land</p>
+          <div class="divider"></div>
+        </div>
+        <p>From ancient rock-hewn churches to active volcanoes, from highland wilderness to tribal cultures, Ethiopia offers experiences found nowhere else on Earth. Let Axumite Ethiopia Tours be your guide to this remarkable country.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="tours.html" class="btn btn-primary">Explore Tours</a>
+          <a href="contact.html" class="btn btn-accent">Plan Your Journey</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Axumite<span>Ethiopia</span>Tours</div>
+          <p class="footer-desc">Discover the cradle of civilization. We craft unforgettable Ethiopian adventures rooted in authenticity, culture, and breathtaking landscapes.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="about-ethiopia.html">About Ethiopia</a></li><li><a href="tours.html">Tours</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="blog.html">Blog</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul>
+        </div>
+        <div>
+          <h4>Popular Tours</h4>
+          <ul><li><a href="tours.html">Historic Route Tour</a></li><li><a href="tours.html">Omo Valley Expedition</a></li><li><a href="tours.html">Danakil Depression</a></li><li><a href="tours.html">Simien Mountains Trek</a></li><li><a href="tours.html">Lalibela & Axum</a></li></ul>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li>📍 Axum, Tigray, Ethiopia</li>
+            <li>📞 0943647923</li>
+            <li>✉️ natihailemariam72@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AxumiteEthiopiaTours. All rights reserved.</p>
+        <p>Crafted with passion for Ethiopian tourism</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; font-weight: bold;">Built by Azahell Tech</p>
+        <p style="margin-top: 0.3rem; font-size: 0.7rem; color: var(--muted);">📞 0991053717 | 📞 0989429290</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="javascript.js/ax.js"></script>
+</body>
+</html>

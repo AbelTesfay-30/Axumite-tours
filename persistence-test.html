@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persistence Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        .success { color: green; }
+        .error { color: red; }
+        .rating-display { background: #f5f5f5; padding: 10px; margin: 10px 0; border-left: 4px solid #4CAF50; }
+    </style>
+</head>
+<body>
+    <h1>Rating Persistence Test</h1>
+    
+    <div class="test-section">
+        <h3>Step 1: Add a Test Rating</h3>
+        <input type="text" id="testName" placeholder="Name" value="Persistence Test">
+        <input type="text" id="testCountry" placeholder="Country" value="Ethiopia">
+        <input type="number" id="testRating" placeholder="Rating (1-5)" value="5" min="1" max="5">
+        <input type="text" id="testComment" placeholder="Comment" value="This is a persistence test rating!">
+        <button onclick="addTestRating()">Add Test Rating</button>
+    </div>
+    
+    <div class="test-section">
+        <h3>Step 2: Check localStorage</h3>
+        <button onclick="checkStorage()">Check Current Storage</button>
+        <button onclick="clearStorage()">Clear All Storage</button>
+        <div id="storageDisplay"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Step 3: Simulate Page Load</h3>
+        <button onclick="simulatePageLoad()">Simulate Page Load</button>
+        <div id="simulatedDisplay"></div>
+    </div>
+
+    <script>
+        function addTestRating() {
+            const name = document.getElementById('testName').value.trim();
+            const country = document.getElementById('testCountry').value.trim();
+            const rating = parseInt(document.getElementById('testRating').value);
+            const comment = document.getElementById('testComment').value.trim();
+            
+            if (!name || !country || !comment || rating < 1 || rating > 5) {
+                alert('Please fill all fields correctly');
+                return;
+            }
+            
+            const newRating = {
+                name: name,
+                country: country,
+                comment: comment,
+                rating: rating,
+                date: new Date().toLocaleDateString()
+            };
+            
+            let ratings = JSON.parse(localStorage.getItem('axumiteRatings') || '[]');
+            ratings.push(newRating);
+            localStorage.setItem('axumiteRatings', JSON.stringify(ratings));
+            
+            document.getElementById('storageDisplay').innerHTML = 
+                '<p class="success">Rating added successfully!</p>';
+            checkStorage();
+        }
+        
+        function checkStorage() {
+            const ratings = JSON.parse(localStorage.getItem('axumiteRatings') || '[]');
+            const display = document.getElementById('storageDisplay');
+            
+            if (ratings.length === 0) {
+                display.innerHTML = '<p class="error">No ratings found in localStorage</p>';
+            } else {
+                display.innerHTML = `
+                    <p class="success">Found ${ratings.length} rating(s) in localStorage:</p>
+                    ${ratings.map(r => `
+                        <div class="rating-display">
+                            <strong>${r.name}</strong> (${r.country}) - ${'★'.repeat(r.rating)}<br>
+                            "${r.comment}"<br>
+                            <small>Date: ${r.date}</small>
+                        </div>
+                    `).join('')}
+                `;
+            }
+        }
+        
+        function clearStorage() {
+            localStorage.removeItem('axumiteRatings');
+            localStorage.removeItem('ratingModalShown');
+            localStorage.removeItem('contactRatingModalShown');
+            document.getElementById('storageDisplay').innerHTML = 
+                '<p class="success">Storage cleared!</p>';
+            document.getElementById('simulatedDisplay').innerHTML = '';
+        }
+        
+        function simulatePageLoad() {
+            // This simulates what the home page does
+            const savedRatings = JSON.parse(localStorage.getItem('axumiteRatings') || '[]');
+            const display = document.getElementById('simulatedDisplay');
+            
+            if (savedRatings.length === 0) {
+                display.innerHTML = '<p class="error">No ratings to load</p>';
+            } else {
+                display.innerHTML = `
+                    <p class="success">Simulated page load would display ${savedRatings.length} rating(s):</p>
+                    ${savedRatings.map(r => `
+                        <div class="rating-display">
+                            <strong>${r.name}</strong> from ${r.country}<br>
+                            Rating: ${'★'.repeat(r.rating)}<br>
+                            "${r.comment}"<br>
+                            <small>Date: ${r.date}</small>
+                        </div>
+                    `).join('')}
+                `;
+            }
+        }
+        
+        // Auto-check storage on load
+        window.onload = function() {
+            checkStorage();
+            simulatePageLoad();
+        };
+    </script>
+</body>
+</html>

@@ -7,6 +7,97 @@
   <meta name="description" content="Explore Ethiopia with AxumiteEthiopiaTours. Curated tours to Lalibela, Simien Mountains, Danakil Depression, Omo Valley and more." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="style.css/ax.css" />
+  <style>
+    .rating-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .rating-modal.active {
+      display: flex;
+    }
+    
+    .rating-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      animation: slideUp 0.3s ease-out;
+    }
+    
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .rating-stars {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+      font-size: 2rem;
+    }
+    
+    .rating-star {
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #ddd;
+    }
+    
+    .rating-star:hover,
+    .rating-star.active {
+      color: #ffc107;
+      transform: scale(1.1);
+    }
+    
+    .rating-input {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    
+    .rating-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    
+    .rating-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
 </head>
 <body>
 
@@ -23,50 +114,32 @@
 
   <!-- Hero Slider -->
   <section class="hero-slider">
+    <!-- Fixed Logo -->
+    <div class="hero-logo">Axumite<span>Ethiopia</span>Tours</div>
+    
     <div class="hero-slide active">
       <img src="images/axum.jpg" alt="Ancient Axum" />
-      <div class="overlay"></div>
-      <div class="hero-logo">Axumite<span>Ethiopia</span>Tours</div>
     </div>
     <div class="hero-slide">
-      <img src="images/alnejashi1.jfif" alt="Al Nejashi Mosque" />
-      <div class="overlay"></div>
-      <div class="hero-logo">Axumite<span>Ethiopia</span>Tours</div>
+      <img src="images/gerealta priest.jfif" alt="Abune Yimeanta" />
     </div>
     <div class="hero-slide">
-      <img src="images/erta ale.jpg" alt="Erta Ale Volcano" />
-      <div class="overlay"></div>
-      <div class="hero-logo">Axumite<span>Ethiopia</span>Tours</div>
+      <img src="images/dalol3.jpg" alt="Dallol" />
     </div>
     <div class="hero-slide">
-      <img src="images/dalol.webp" alt="Dallol" />
-      <div class="overlay"></div>
-      <div class="hero-logo">Axumite<span>Ethiopia</span>Tours</div>
+      <img src="images/erta ale4.jpg" alt="Erta Ale Volcano" />
     </div>
     <div class="hero-slide">
-      <img src="images/gonder.jpg" alt="Historic Gondar" />
-      <div class="overlay"></div>
-      <div class="hero-logo">Axumite<span>Ethiopia</span>Tours</div>
+      <img src="images/al nejashi.H_.jpg" alt="Harar" />
     </div>
     <div class="hero-slide">
-      <img src="images/harar.jpg" alt="Walled City of Harar" />
-      <div class="overlay"></div>
-      <div class="hero-logo">Axumite<span>Ethiopia</span>Tours</div>
+      <img src="images/yiha.jfif" alt="Yohannes" />
     </div>
     <div class="hero-slide">
-      <img src="images/Abreha_and_Atsbeha_Church_02.jpg" alt="Abreha Atsbeha Church" />
-      <div class="overlay"></div>
-      <div class="hero-logo">Axumite<span>Ethiopia</span>Tours</div>
+      <img src="images/gonder.jpg" alt="Gonder" />
     </div>
     <div class="hero-slide">
-      <img src="images/yohanness.jfif" alt="Yohannes" />
-      <div class="overlay"></div>
-      <div class="hero-logo">Axumite<span>Ethiopia</span>Tours</div>
-    </div>
-    <div class="hero-slide">
-      <img src="images/gerealta.jfif" alt="Gerealta Mountains" />
-      <div class="overlay"></div>
-      <div class="hero-logo">Axumite<span>Ethiopia</span>Tours</div>
+      <img src="images/yiha (2).jfif" alt="Yiha Heritage" />
     </div>
 
     <div class="hero-content">
@@ -87,6 +160,7 @@
         <div class="hero-nav-links">
           <a href="index.html" class="hero-nav-link active">Home</a>
           <a href="about.html" class="hero-nav-link">About</a>
+          <a href="about-ethiopia.html" class="hero-nav-link">About Ethiopia</a>
           <a href="tours.html" class="hero-nav-link">Tours</a>
           <a href="destinations.html" class="hero-nav-link">Destinations</a>
           <a href="blog.html" class="hero-nav-link">Blog</a>
@@ -102,7 +176,6 @@
 
     <div class="hero-dots">
       <button class="hero-dot active"></button>
-      <button class="hero-dot"></button>
       <button class="hero-dot"></button>
       <button class="hero-dot"></button>
       <button class="hero-dot"></button>
@@ -265,63 +338,6 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2>What Travelers Say</h2>
-        <p>Real stories from adventurers who discovered Ethiopia with us</p>
-        <div class="divider"></div>
-      </div>
-      <div class="grid grid-2">
-        <div class="testimonial-card fade-in">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"An absolutely life-changing experience! Our guide was incredibly knowledgeable and passionate about Ethiopia's history. The rock churches of Lalibela left me speechless."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">S</div>
-            <div>
-              <p class="reviewer-name">Sarah M.</p>
-              <p class="reviewer-country">🌍 United States</p>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card fade-in">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"The Simien Mountains trek was the highlight of our year. Stunning landscapes, unique wildlife, and amazing camping under the stars. Highly recommend!"</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">T</div>
-            <div>
-              <p class="reviewer-name">Thomas K.</p>
-              <p class="reviewer-country">🌍 Germany</p>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card fade-in">
-          <div class="stars">★★★★★</div>
-          <p class="quote">"The Omo Valley cultural tour was deeply moving. Meeting the local tribes and witnessing their traditions was an incredible privilege. Beautifully organized."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">A</div>
-            <div>
-              <p class="reviewer-name">Aiko T.</p>
-              <p class="reviewer-country">🌍 Japan</p>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card fade-in">
-          <div class="stars">★★★★☆</div>
-          <p class="quote">"Danakil Depression was like visiting another planet! The logistics were flawless and our guides kept us safe in this extreme environment. Unforgettable."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar">P</div>
-            <div>
-              <p class="reviewer-name">Pierre L.</p>
-              <p class="reviewer-country">🌍 France</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA Banner -->
   <section class="cta-banner">
     <img src="images/Abreha_and_Atsbeha_Church_02.jpg" alt="Ethiopian culture" />
@@ -376,6 +392,24 @@
     </div>
   </section>
 
+  <!-- Customer Ratings & Reviews -->
+  <section class="section-padding" id="reviewsSection">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>What Travelers Say</h2>
+        <p>Real reviews from adventurers who discovered Ethiopia with us</p>
+        <div class="divider"></div>
+      </div>
+      <div class="grid grid-2" id="testimonialsContainer"></div>
+      <div id="noReviews" style="text-align:center;padding:2rem;color:var(--muted);">
+        <p>No reviews yet — be the first to share your experience!</p>
+      </div>
+      <div class="text-center mt-10">
+        <button id="openRatingBtn" class="btn btn-accent">⭐ Leave a Review</button>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -383,21 +417,17 @@
         <div>
           <div class="footer-brand">Axumite<span>Ethiopia</span>Tours</div>
           <p class="footer-desc">Discover the cradle of civilization. We craft unforgettable Ethiopian adventures rooted in authenticity, culture, and breathtaking landscapes.</p>
-          <div class="social-links">
-            <a href="#" class="social-link">f</a>
-            <a href="#" class="social-link">📷</a>
-            <a href="#" class="social-link">𝕏</a>
-            <a href="#" class="social-link">▶</a>
-          </div>
         </div>
         <div>
           <h4>Quick Links</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
+            <li><a href="about-ethiopia.html">About Ethiopia</a></li>
             <li><a href="tours.html">Tours</a></li>
             <li><a href="destinations.html">Destinations</a></li>
             <li><a href="blog.html">Blog</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -414,9 +444,9 @@
         <div>
           <h4>Contact Us</h4>
           <ul class="footer-contact">
-            <li>📍 Bole Road, Addis Ababa, Ethiopia</li>
-            <li>📞 +251 91 234 5678</li>
-            <li>✉️ info@axumitetours.com</li>
+            <li>📍 Axum, Tigray, Ethiopia</li>
+            <li>📞 0943647923</li>
+            <li>✉️ natihailemariam72@gmail.com</li>
           </ul>
         </div>
       </div>
@@ -424,23 +454,45 @@
         <p>&copy; 2026 AxumiteEthiopiaTours. All rights reserved.</p>
         <p>Crafted with passion for Ethiopian tourism</p>
         <p style="margin-top: 0.5rem; font-size: 0.8rem; font-weight: bold;">Built by Azahell Tech</p>
+        <p style="margin-top: 0.3rem; font-size: 0.7rem; color: var(--muted);">📞 0991053717 | 📞 0989429290</p>
       </div>
     </div>
   </footer>
+
+  <!-- Rating Modal -->
+  <div id="ratingModal" class="rating-modal">
+    <div class="rating-content">
+      <h3 style="color: var(--secondary); margin-bottom: 1rem;">Rate Your Experience</h3>
+      <p style="color: var(--text); margin-bottom: 1.5rem;">How would you rate your experience with AxumiteEthiopiaTours?</p>
+      <div class="rating-stars" id="ratingStars">
+        <span class="rating-star" data-rating="1">★</span>
+        <span class="rating-star" data-rating="2">★</span>
+        <span class="rating-star" data-rating="3">★</span>
+        <span class="rating-star" data-rating="4">★</span>
+        <span class="rating-star" data-rating="5">★</span>
+      </div>
+      <input type="text" id="ratingName" class="rating-input" placeholder="Your Name" maxlength="30">
+      <input type="text" id="ratingCountry" class="rating-input" placeholder="Your Country" maxlength="30">
+      <textarea id="ratingComment" class="rating-input" rows="3" placeholder="Share your experience..." maxlength="300"></textarea>
+      <div class="rating-buttons">
+        <button id="submitRating" class="btn btn-success" style="color: black;">Submit Rating</button>
+        <button id="cancelRating" class="btn btn-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
 
   <script src="javascript.js/ax.js"></script>
   <script>
     // Hero slider text updates
     const heroTexts = [
       { title: 'Discover Ancient Axum', subtitle: 'Walk among towering stelae of one of the world\'s oldest civilizations' },
-      { title: 'Al Nejashi Mosque', subtitle: 'One of Africa\'s oldest mosques from 7th century' },
-      { title: 'Erta Ale Volcano', subtitle: 'Active volcano with permanent lava lake' },
-      { title: 'Dallol', subtitle: 'Colorful mineral formations in Danakil Depression' },
-      { title: 'Explore Historic Gondar', subtitle: 'Discover castles of the Gondarine dynasty, Ethiopia\'s medieval capital' },
-      { title: 'Experience Walled Harar', subtitle: 'Step into the ancient walled city, a UNESCO World Heritage treasure' },
-      { title: 'Abreha Atsbeha Church', subtitle: 'Marvel at ancient rock-hewn churches carved from solid stone' },
+      { title: 'Abune Yimeanta', subtitle: 'Sacred monastery with breathtaking views and ancient religious heritage' },
+      { title: 'Dallol', subtitle: 'Explore the hottest place on Earth with colorful mineral formations' },
+      { title: 'Erta Ale Volcano', subtitle: 'Witness the permanent lava lake in this active volcanic wonder' },
+      { title: 'Al Nejashi Mosque', subtitle: 'One of Africa\'s oldest mosques from the 7th century' },
       { title: 'Yohannes Heritage', subtitle: 'Journey through Ethiopia\'s sacred religious and historical sites' },
-      { title: 'Gerealta Mountains', subtitle: 'Trek through dramatic sandstone formations of Ethiopia\'s breathtaking landscape' }
+      { title: 'Explore Historic Gondar', subtitle: 'Discover castles of the Gondarine dynasty, Ethiopia\'s medieval capital' },
+      { title: 'Yiha Heritage', subtitle: 'Ancient rock-hewn churches and sacred religious treasures' }
     ];
     const origShowSlide = showSlide;
     showSlide = function(index) {
@@ -449,6 +501,77 @@
       const subEl = document.getElementById('hero-subtitle');
       if (titleEl && heroTexts[index]) { titleEl.textContent = heroTexts[index].title; subEl.textContent = heroTexts[index].subtitle; }
     };
+
+    // Rating modal
+    let currentRating = 0;
+
+    function showRatingModal() { document.getElementById('ratingModal').classList.add('active'); }
+    function hideRatingModal() { document.getElementById('ratingModal').classList.remove('active'); resetRatingForm(); }
+    function resetRatingForm() {
+      currentRating = 0;
+      document.querySelectorAll('.rating-star').forEach(s => s.classList.remove('active'));
+      ['ratingName','ratingCountry','ratingComment'].forEach(id => document.getElementById(id).value = '');
+    }
+
+    document.querySelectorAll('.rating-star').forEach(star => {
+      star.addEventListener('click', function() { currentRating = parseInt(this.dataset.rating); updateStars(); });
+      star.addEventListener('mouseenter', function() {
+        const h = parseInt(this.dataset.rating);
+        document.querySelectorAll('.rating-star').forEach((s, i) => s.classList.toggle('active', i < h));
+      });
+    });
+    document.getElementById('ratingStars').addEventListener('mouseleave', updateStars);
+    function updateStars() {
+      document.querySelectorAll('.rating-star').forEach((s, i) => s.classList.toggle('active', i < currentRating));
+    }
+
+    // Render reviews from localStorage
+    function renderReviews() {
+      const ratings = JSON.parse(localStorage.getItem('axumiteRatings') || '[]');
+      const container = document.getElementById('testimonialsContainer');
+      const noReviews = document.getElementById('noReviews');
+      container.innerHTML = '';
+      if (ratings.length === 0) { noReviews.style.display = 'block'; return; }
+      noReviews.style.display = 'none';
+      ratings.slice().reverse().forEach(r => {
+        const card = document.createElement('div');
+        card.className = 'testimonial-card fade-in';
+        card.innerHTML = `
+          <div class="stars">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+          <p class="quote">"${r.comment}"</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">${r.name.charAt(0).toUpperCase()}</div>
+            <div>
+              <p class="reviewer-name">${r.name}</p>
+              <p class="reviewer-country">🌍 ${r.country}</p>
+            </div>
+          </div>`;
+        container.appendChild(card);
+      });
+    }
+
+    document.getElementById('submitRating').addEventListener('click', function() {
+      const name = document.getElementById('ratingName').value.trim();
+      const country = document.getElementById('ratingCountry').value.trim();
+      const comment = document.getElementById('ratingComment').value.trim();
+      if (!name || !country || !comment || currentRating === 0) {
+        alert('Please fill in all fields and select a star rating.');
+        return;
+      }
+      const ratings = JSON.parse(localStorage.getItem('axumiteRatings') || '[]');
+      ratings.push({ name, country, comment, rating: currentRating, date: new Date().toLocaleDateString() });
+      localStorage.setItem('axumiteRatings', JSON.stringify(ratings));
+      hideRatingModal();
+      renderReviews();
+      // Scroll to testimonials and show success toast
+      document.getElementById('reviewsSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      showToast('Thank you, ' + name + '! Your review has been saved.', 'success');
+    });
+
+    document.getElementById('cancelRating').addEventListener('click', hideRatingModal);
+    document.getElementById('openRatingBtn').addEventListener('click', showRatingModal);
+
+    window.addEventListener('load', renderReviews);
   </script>
 </body>
 </html>

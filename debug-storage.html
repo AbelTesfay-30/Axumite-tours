@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; background: #f9f9f9; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+        .info { color: blue; }
+        pre { background: #eee; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>localStorage Debug Tool</h1>
+    
+    <div class="debug-section">
+        <h3>localStorage Status</h3>
+        <button onclick="checkLocalStorageSupport()">Check localStorage Support</button>
+        <button onclick="showAllKeys()">Show All Keys</button>
+        <button onclick="clearAllKeys()">Clear All Keys</button>
+        <div id="statusDisplay"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>Test Rating Storage</h3>
+        <input type="text" id="debugName" placeholder="Name" value="Debug User">
+        <input type="text" id="debugCountry" placeholder="Country" value="Debug Country">
+        <input type="number" id="debugRating" placeholder="Rating" value="5" min="1" max="5">
+        <input type="text" id="debugComment" placeholder="Comment" value="Debug comment">
+        <br><br>
+        <button onclick="saveDebugRating()">Save Rating</button>
+        <button onclick="loadDebugRating()">Load Rating</button>
+        <button onclick="checkAxumiteRatings()">Check axumiteRatings</button>
+        <div id="ratingDisplay"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>Real-time Monitoring</h3>
+        <button onclick="startMonitoring()">Start Monitoring</button>
+        <button onclick="stopMonitoring()">Stop Monitoring</button>
+        <div id="monitorDisplay"></div>
+    </div>
+
+    <script>
+        let monitoringInterval;
+        
+        function checkLocalStorageSupport() {
+            const display = document.getElementById('statusDisplay');
+            try {
+                localStorage.setItem('test', 'test');
+                localStorage.removeItem('test');
+                display.innerHTML = '<p class="success">✅ localStorage is supported and working</p>';
+            } catch (e) {
+                display.innerHTML = `<p class="error">❌ localStorage Error: ${e.message}</p>`;
+            }
+        }
+        
+        function showAllKeys() {
+            const display = document.getElementById('statusDisplay');
+            const keys = Object.keys(localStorage);
+            
+            if (keys.length === 0) {
+                display.innerHTML = '<p class="info">ℹ️ No localStorage keys found</p>';
+            } else {
+                let html = `<p class="info">ℹ️ Found ${keys.length} localStorage keys:</p><pre>`;
+                keys.forEach(key => {
+                    const value = localStorage.getItem(key);
+                    html += `${key}: ${value}\n`;
+                });
+                html += '</pre>';
+                display.innerHTML = html;
+            }
+        }
+        
+        function clearAllKeys() {
+            Object.keys(localStorage).forEach(key => {
+                localStorage.removeItem(key);
+            });
+            document.getElementById('statusDisplay').innerHTML = '<p class="success">✅ All localStorage cleared</p>';
+            showAllKeys();
+        }
+        
+        function saveDebugRating() {
+            const name = document.getElementById('debugName').value.trim();
+            const country = document.getElementById('debugCountry').value.trim();
+            const rating = parseInt(document.getElementById('debugRating').value);
+            const comment = document.getElementById('debugComment').value.trim();
+            
+            if (!name || !country || !comment || rating < 1 || rating > 5) {
+                document.getElementById('ratingDisplay').innerHTML = '<p class="error">❌ Please fill all fields correctly</p>';
+                return;
+            }
+            
+            const newRating = {
+                name: name,
+                country: country,
+                comment: comment,
+                rating: rating,
+                date: new Date().toLocaleDateString()
+            };
+            
+            try {
+                let ratings = JSON.parse(localStorage.getItem('axumiteRatings') || '[]');
+                ratings.push(newRating);
+                localStorage.setItem('axumiteRatings', JSON.stringify(ratings));
+                
+                document.getElementById('ratingDisplay').innerHTML = `
+                    <p class="success">✅ Rating saved successfully!</p>
+                    <pre>${JSON.stringify(newRating, null, 2)}</pre>
+                    <p class="info">Total ratings in storage: ${ratings.length}</p>
+                `;
+            } catch (e) {
+                document.getElementById('ratingDisplay').innerHTML = `<p class="error">❌ Save Error: ${e.message}</p>`;
+            }
+        }
+        
+        function loadDebugRating() {
+            try {
+                const ratings = JSON.parse(localStorage.getItem('axumiteRatings') || '[]');
+                const display = document.getElementById('ratingDisplay');
+                
+                if (ratings.length === 0) {
+                    display.innerHTML = '<p class="info">ℹ️ No ratings found in axumiteRatings</p>';
+                } else {
+                    display.innerHTML = `
+                        <p class="success">✅ Loaded ${ratings.length} rating(s):</p>
+                        <pre>${JSON.stringify(ratings, null, 2)}</pre>
+                    `;
+                }
+            } catch (e) {
+                document.getElementById('ratingDisplay').innerHTML = `<p class="error">❌ Load Error: ${e.message}</p>`;
+            }
+        }
+        
+        function checkAxumiteRatings() {
+            const value = localStorage.getItem('axumiteRatings');
+            const display = document.getElementById('ratingDisplay');
+            
+            if (!value) {
+                display.innerHTML = '<p class="info">ℹ️ axumiteRatings key not found in localStorage</p>';
+            } else {
+                try {
+                    const parsed = JSON.parse(value);
+                    display.innerHTML = `
+                        <p class="success">✅ axumiteRatings found:</p>
+                        <p class="info">Raw value: ${value}</p>
+                        <p class="info">Parsed: ${parsed.length} items</p>
+                        <pre>${JSON.stringify(parsed, null, 2)}</pre>
+                    `;
+                } catch (e) {
+                    display.innerHTML = `<p class="error">❌ JSON Parse Error: ${e.message}</p><p>Raw value: ${value}</p>`;
+                }
+            }
+        }
+        
+        function startMonitoring() {
+            let lastCount = 0;
+            monitoringInterval = setInterval(() => {
+                const ratings = JSON.parse(localStorage.getItem('axumiteRatings') || '[]');
+                const currentCount = ratings.length;
+                
+                if (currentCount !== lastCount) {
+                    const display = document.getElementById('monitorDisplay');
+                    const timestamp = new Date().toLocaleTimeString();
+                    display.innerHTML = `<p class="info">[${timestamp}] Rating count changed: ${lastCount} → ${currentCount}</p>`;
+                    lastCount = currentCount;
+                }
+            }, 1000);
+            
+            document.getElementById('monitorDisplay').innerHTML = '<p class="success">✅ Monitoring started</p>';
+        }
+        
+        function stopMonitoring() {
+            if (monitoringInterval) {
+                clearInterval(monitoringInterval);
+                document.getElementById('monitorDisplay').innerHTML = '<p class="info">ℹ️ Monitoring stopped</p>';
+            }
+        }
+        
+        // Auto-check on load
+        window.onload = function() {
+            checkLocalStorageSupport();
+            showAllKeys();
+            checkAxumiteRatings();
+        };
+    </script>
+</body>
+</html>
